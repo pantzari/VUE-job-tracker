@@ -1,6 +1,8 @@
 {
   "name": "job-tracker",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Job Tracker desktop application",
+  "author": "Konstantina",
   "private": true,
   "type": "module",
   "main": "electron-main.cjs",
@@ -8,7 +10,36 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron": "electron ."
+    "electron": "electron .",
+    "dist": "vite build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.konstantina.jobtracker",
+    "productName": "Job Tracker",
+    "files": [
+      "dist-vue/**/*",
+      "electron-main.cjs",
+      "preload.cjs",
+      "strawb-icon.ico"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "strawb-icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Job Tracker"
+    }
   },
   "dependencies": {
     "vue": "^3.5.42"
@@ -16,6 +47,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",
     "electron": "^45.3.0",
+    "electron-builder": "^26.18.0",
     "vite": "^8.2.2",
     "vite-plugin-vue-devtools": "^8.2.1"
   },

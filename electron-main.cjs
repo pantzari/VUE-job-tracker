@@ -5,10 +5,11 @@ app.whenReady().then(() => {
   const win = new BrowserWindow({
     width: 490,
     height: 580,
+    icon: path.join(__dirname, "strawb-icon.ico"),
     titleBarStyle: "hidden",
     titleBarOverlay: {
       color: "#ffc2d9", // Background of the control buttons
-      symbolColor: "#e754cc", // Pink minimize, maximize, and closenpm run electronicons
+      symbolColor: "#e754cc", // Pink minimize, maximize, and close
       height: 37, // Button height
     },
 
@@ -19,5 +20,9 @@ app.whenReady().then(() => {
     },
   });
 
-  win.loadURL("http://localhost:5173");
+  if (app.isPackaged) {
+    win.loadFile(path.join(__dirname, "dist-vue", "index.html"));
+  } else {
+    win.loadURL("http://localhost:5173");
+  }
 });
