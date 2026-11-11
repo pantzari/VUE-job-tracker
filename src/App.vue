@@ -32,14 +32,6 @@ watch(
 function delApplication(id) {
   applications.value = applications.value.filter((app) => app.id !== id);
 }
-// Example: inside a button click or theme toggle function
-function changeThemeToDark() {
-  window.electronAPI.setColor("#121212");
-}
-
-function changeThemeToLight() {
-  window.electronAPI.setColor("#ffffff");
-}
 </script>
 
 <template>

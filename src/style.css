@@ -25,6 +25,7 @@ body {
 #app {
   width: 100%;
   max-width: 480px;
+  padding-top: 20px;
 }
 
 h1 {
@@ -116,7 +117,8 @@ li button {
   color: var(--rose);
   font-size: 0.85rem;
 }
-/* Status-specific styles  */
+
+/*_____ Status-specific styles_____  */
 li .status.applied {
   background: #fad1e0;
 }
@@ -154,23 +156,18 @@ h1 {
   font-weight: 800;
   margin: 0 0 20px;
 
-  /* 👇 Makes this title area draggable so you can move the window */
+  /* making the window draggable */
   -webkit-app-region: drag;
   user-select: none;
 }
-/* Fixed drag bar that covers the entire top line (37px) */
+/* electron drag bar */
 .drag-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 37px; /* Matches the 37px height in your electron-main.cjs */
+  height: 37px;
   -webkit-app-region: drag;
   user-select: none;
   z-index: 1000;
-}
-
-/* Push your content down so it doesn't get hidden under the 37px bar */
-#app {
-  padding-top: 20px;
 }
