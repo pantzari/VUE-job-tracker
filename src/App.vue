@@ -32,14 +32,24 @@ watch(
 function delApplication(id) {
   applications.value = applications.value.filter((app) => app.id !== id);
 }
+// Example: inside a button click or theme toggle function
+function changeThemeToDark() {
+  window.electronAPI.setColor("#121212");
+}
+
+function changeThemeToLight() {
+  window.electronAPI.setColor("#ffffff");
+}
 </script>
 
 <template>
+  <div class="drag-bar"></div>
   <h1>My job tracker</h1>
   <ul>
     <li v-for="app in applications" :key="app.id">
       <div class="application-info">
         <span>{{ app.company }} - {{ app.role }}</span>
+
         <span class="application-date">{{ app.date }}</span>
       </div>
       <!-- taking 2 classes, general status css and each status css, so that the
@@ -56,12 +66,12 @@ function delApplication(id) {
   <input v-model="role" placeholder="Role" />
   <!--_____________________________________________-->
   <!-- <  <p>You typed: {{ role }}</p>> -->
-  <button @click="addApplication">Add Application</button>
-  <!--_____________________________________________-->
   <select v-model="status">
     <option>Applied</option>
     <option>Interview</option>
     <option>Offer</option>
     <option>Rejected</option>
   </select>
+  <button @click="addApplication">Add Application</button>
+  <!--_____________________________________________-->
 </template>
