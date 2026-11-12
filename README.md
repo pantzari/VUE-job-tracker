@@ -6,16 +6,20 @@ A desktop application designed to help job seekers organize, manage, and track t
 
 ## ୨ৎ Overview
 
-**Job Tracker** combines the reactive UI of modern web technologies with native desktop integration. It allows users to quickly log job applications, monitor pipeline statuses (Applied, Interview, Offer, Rejected), and retain all data locally between application launches.
+**Job Tracker** combines the reactive UI of modern web technologies with native desktop integration. It allows users to quickly log job applications, attach direct job posting links, pick customizable application dates, monitor pipeline statuses (`Applied`, `Reminded`, `Interview`, `Offer`, `Rejected`), track status update timestamps, and retain all data locally between application launches.
 
 ---
 
 ## ୨ৎ Features
 
-- **Application Tracking**: Log applications with company name, job role, submission date, and current status.
-- **Visual Status Indicators**: Color-coded badges for quick pipeline triage (`Applied`, `Interview`, `Offer`, `Rejected`).
+- **Comprehensive Application Tracking**: Log applications with company name, job role, direct job posting URL, application date, and current pipeline status.
+- **Interactive Job Links**: Clickable company and role links that open job postings directly in the user's default browser.
+- **Custom Date Picker**: Integrated calendar dropdown allowing users to select the exact application date (defaults automatically to today).
+- **Inline Pipeline Management**: Update application statuses on the fly with distinct color-coded badges (`Applied`, `Reminded`, `Interview`, `Offer`, `Rejected`).
+- **Status Update Timestamps**: Automatically tracks and displays when an application's status was last updated.
+- **Anchored & Responsive Card Layout**: Pinned status dropdowns and delete buttons locked to the far right, with flexible text-wrapping to prevent layout shifting on long titles.
 - **Data Persistence**: Automatic client-side synchronization with `localStorage`—no external database setup or internet connection required.
-- **Custom Desktop Experience**: Frameless window design with customized native Windows titlebar controls and custom application iconography.
+- **Custom Desktop Experience**: Frameless window design with customized native Windows titlebar controls (`titleBarOverlay`) and custom strawberry application iconography.
 - **Standalone Installer**: Distributed as a standalone Windows NSIS installer (`.exe`) with start menu and desktop shortcut generation.
 
 ---
@@ -28,7 +32,10 @@ A desktop application designed to help job seekers organize, manage, and track t
 - **Packaging & Distribution**: [electron-builder](https://www.electron.build/) (NSIS Windows targets)
 - **Styling**: Modern CSS3 (Custom design system, CSS variables, Google Fonts)
 
-### 🔒 Security & Architecture Highlights
+---
+
+## 🔒 Security & Architecture Highlights
+
 - **Process Separation**: Leverages Electron's multi-process architecture with `contextIsolation: true` and `nodeIntegration: false`.
 - **Preload Bridge**: Safe communication between the renderer process and main process via a scoped `contextBridge` (`preload.cjs`).
 - **Relative Asset Resolution**: Configured Vite base paths for seamless offline protocol (`file://`) loading within packaged Electron `.asar` bundles.
@@ -80,5 +87,5 @@ npm run dist
 
 The resulting standalone installer will be output to:
 ```text
-dist/Job Tracker Setup 1.0.0.exe
+dist/Job Tracker Setup 1.0.1.exe
 ```
