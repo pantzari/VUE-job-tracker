@@ -8,9 +8,9 @@ app.whenReady().then(() => {
     icon: path.join(__dirname, "strawb-icon.ico"),
     titleBarStyle: "hidden",
     titleBarOverlay: {
-      color: "#ffc2d9", // Background of the control buttons
-      symbolColor: "#e754cc", // Pink minimize, maximize, and close
-      height: 37, // Button height
+      color: "#ffc2d9", //background of the control buttons
+      symbolColor: "#e754cc", // pink minimize, maximize, and close
+      height: 37, // button height
     },
 
     webPreferences: {
